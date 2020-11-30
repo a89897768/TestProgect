@@ -9,6 +9,8 @@ import android.util.Log;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 
@@ -21,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        test("gson.jar", "com.google.gson.DefaultDateTypeAdapter");
         test("TWCAcMobileCryptoV10140U20180601.jar","com.twca.crypto.twcalib");
-//        test("TWCAcMobileCryptoV10140U20180601.jar","com.twca.crypto.twcalib");
-
+        test("TWCAcMobileCryptoV10150U20191230.jar","com.twca.crypto.twcalib");
     }
 
     private void test(String jar, String className) {
@@ -44,19 +44,12 @@ public class MainActivity extends AppCompatActivity {
             i.close();
 
             File ff = new File(getFilesDir().getPath() + jarPath);
-            Log.i("Test", String.valueOf(ff.exists()));
-            Log.i("Test2", String.valueOf(getMainLooper().getThread().getContextClassLoader() == null));
-            Log.i("Test3", ff.toURI().toURL().toString());
-
             ClassLoader classLoader;
-            classLoader = new URLClassLoader(new URL[]{ff.toURL()}, getMainLooper().getThread().getContextClassLoader());
-//            classLoader = new PathClassLoader(ff.getPath(), getMainLooper().getThread().getContextClassLoader());
-//            classLoader = new DexClassLoader(f.toURI().toURL().toString(), getDir("libs", MODE_PRIVATE).getAbsolutePath(), null, ClassLoader.getSystemClassLoader());
+            classLoader = new DexClassLoader(ff.getPath(), getFilesDir().getPath(), null, getClassLoader());
             Class<?> c = classLoader.loadClass(className);
-//            Class<?> c = Class.forName(className, true, classLoader);
-            Log.i("Test4 Class is null? ", String.valueOf(c == null));
-//            Method m = c.getMethod("getVersion");
-//            Log.i("Test", (String) m.invoke(c.newInstance()));
+            Field field = c.getDeclaredField("libName");
+            field.setAccessible(true);
+            Log.i("Test", (String) field.get(c.newInstance()));
         } catch (Exception e) {
             e.printStackTrace();
         }

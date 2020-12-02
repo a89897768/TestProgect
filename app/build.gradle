@@ -25,12 +25,6 @@ android {
         }
     }
 
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
-
     packagingOptions {
         exclude 'androidsupportmultidexversion.txt'
     }
@@ -45,7 +39,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.support:multidex:1.0.0'
-//    implementation files('libs/gson.jar')
-//    implementation files('src/main/jniLibs/TWCAcMobileCryptoV10140U20180601.jar')
-//    implementation files('src/main/jniLibs/TWCAcMobileCryptoV10150U20191230.jar')
 }

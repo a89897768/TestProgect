@@ -1,18 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.test.CustomCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.test.CustomAppBarLayout
+        android:id="@+id/id_news_content_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:background="#FF000000">
+<!--    <com.example.test.CustomAppBarLayout-->
+<!--        android:id="@+id/id_news_content_appbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#FF000000">-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--摺疊區 此為需要摺疊的區域 能折疊的Offset會等於此高度設定-->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <!--新聞內容標題-->
+            <!--注意Code會蓋掉這裡的TextSize-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="left|top"
+                android:maxLines="2"
+                android:text="測試文字"
+                android:textSize="16dp"
+                tools:text="標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子標題蚊子" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <!--功能列-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:textSize="18dp"
+                tools:text="0000/00/00 00:00:00" />
+        </LinearLayout>
+
+<!--        <com.example.test.CustomWebView-->
+<!--            android:id="@+id/webView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1"/>-->
+    </com.example.test.CustomAppBarLayout>
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--        <FrameLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+            <com.example.test.CustomWebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+<!--        </FrameLayout>-->
+<!--    </androidx.core.widget.NestedScrollView>-->
+
+<!--    <com.example.test.CustomWebView-->
+<!--        android:id="@+id/webView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
+</com.example.test.CustomCoordinatorLayout>

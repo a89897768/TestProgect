@@ -1,7 +1,7 @@
 package com.example.test;
 
 public class Factory {
-    public APhone mAPhone = new APhone();
+
     public BPhone mBPhone = new BPhone();
 
     public interface CellPhone{
@@ -23,6 +23,7 @@ public class Factory {
     }
 
     public void createPhone(String name){
+        APhone mAPhone = new APhone();
         if(name.equals("A")){
             mAPhone.createMonitor();
         }else{

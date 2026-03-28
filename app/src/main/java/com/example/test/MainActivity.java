@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         TextView mTextView = findViewById(R.id.id_textview);
         TextView mTextView1 = findViewById(R.id.id_textview1);
         mTextView.setOnClickListener(v -> {
-            if(mEditText.equals("1")){
+            if(mEditText.getText().toString().equals("1")){
                 mTextView1.setText("登入");
             }else{
                 mTextView1.setText("登出");

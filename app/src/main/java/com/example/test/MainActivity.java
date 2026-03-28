@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Factory f = new Factory();
-        f.createPhone();
+        String name=""; //這邊不知道為什麼就填一個空字串
+        f.createPhone(name);
     }
 }
 

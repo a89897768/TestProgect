@@ -12,3 +12,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
+
+/*
+class Singleton{
+    //他一開始寫在這，我請他移出去獨立一個，不會移一直要用選單new一個fragment
+    //問原因說自己之前的練習都是這樣做，也就是說，總是看著文件or範例做但「不知道自己在做什麼」
+}
+*/

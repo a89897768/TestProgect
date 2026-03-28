@@ -16,11 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
         EditText mEditText = findViewById(R.id.id_edittext);
         TextView mTextView = findViewById(R.id.id_textview);
+        TextView mTextView1 = findViewById(R.id.id_textview1);
         mTextView.setOnClickListener(v -> {
             if(mEditText.equals("1")){
-                Toast.makeText(this,"登入", Toast.LENGTH_LONG);
+                mTextView1.setText("登入");
             }else{
-                Toast.makeText(this,"登出", Toast.LENGTH_LONG);
+                mTextView1.setText("登出");
             }
         });
     }

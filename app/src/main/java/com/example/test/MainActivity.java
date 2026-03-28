@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
         TextView mTextView = findViewById(R.id.id_textview);
         mTextView.setOnClickListener(v -> {
             if(mEditText.equals("1")){
-                Toast.makeText(this,"登入",1);
+                Toast.makeText(this,"登入", Toast.LENGTH_LONG);
             }else{
-                Toast.makeText(this,"登出",1);
+                Toast.makeText(this,"登出", Toast.LENGTH_LONG);
             }
         });
     }

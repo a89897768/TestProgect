@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Test</string>
+
+    <string name="string_main_payment_details_title">付款明細：</string>
+    <string name="string_main_get_product_title">獲得：</string>
+    <string name="string_main_toy_box_title">玩具盒子：</string>
+    <string name="string_main_toy_title">玩具：</string>
+    <string name="string_main_use_line_pay_buy">使用LinePay購買玩具盲盒</string>
+    <string name="string_main_use_apple_pay_buy">使用ApplePay購買玩具盲盒</string>
 </resources>
